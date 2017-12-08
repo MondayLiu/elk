@@ -1,0 +1,32 @@
+server:
+  port: 10084
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+      
+spring:
+  application:
+    name: client-1  
+  #rabbitmq:
+    #host: 192.168.149.242
+    #port: 5672
+    #username: admin
+    #password: admin
+  cloud:
+    stream:
+      kafka:
+        binder:
+          zk-nodes: 192.168.149.242:2181
+          brokers: 192.168.149.242:9092
+    
+  zipkin:
+    base-url: http://localhost:10083
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+management:
+  security:
+    enabled: false

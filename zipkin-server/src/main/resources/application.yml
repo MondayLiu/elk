@@ -1,0 +1,43 @@
+server:
+  port: 10083
+  
+spring:
+  application:
+    name: zipkin-server
+    
+  #rabbitmq:
+    #host: 192.168.149.242
+    #port: 5672
+    #username: admin
+    #password: admin
+    
+  cloud:
+    stream:
+      kafka:
+        binder:
+          zk-nodes: 192.168.149.242:2181
+          brokers: 192.168.149.242:9092
+        
+    
+  sleuth:
+    sampler:
+      percentage: 1.0
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+  
+   
+zipkin:
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      cluster: Week-cluster
+      hosts: http://192.168.149.242:9200
+      index: zipkin
+      index-shards: 5
+      index-replicas: 1
+    
+       
+       

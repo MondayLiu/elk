@@ -1,0 +1,11 @@
+server:
+  port: 8010
+  
+spring:
+  application:
+    name: elk-eureka-server
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
